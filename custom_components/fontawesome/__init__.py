@@ -101,11 +101,10 @@ async def async_migrate_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Migrate old entry."""
 
     if entry.version == 1:
-        entry.version = 2
-
         hass.config_entries.async_update_entry(
             entry,
-            title="Fontawesome Icons"
+            title="Fontawesome Icons", 
+            version = 2
         )
         LOGGER.info("Migrating fontawesome config entry.")
     return True
